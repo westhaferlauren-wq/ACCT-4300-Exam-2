@@ -370,3 +370,90 @@ el.style.display = "none";
 el.style.display = "block";
 }
 }
+<section class="topic" id="practiceexam">
+
+<h2>Practice Exam Mode</h2>
+
+<div class="card">
+<h3>Random Quiz Question</h3>
+
+<p id="quizQuestion">Click the button to start a practice question.</p>
+
+<button onclick="generateQuestion()">Generate Question</button>
+
+<button onclick="showQuizAnswer()">Reveal Answer</button>
+
+<div id="quizAnswer" class="answer"></div>
+
+</div>
+
+</section>
+const quizBank = [
+
+{
+question: "What are the three elements of the fraud triangle?",
+answer: "Pressure, Opportunity, Rationalization"
+},
+
+{
+question: "What is phishing?",
+answer: "A social engineering attack that tricks users into revealing sensitive information."
+},
+
+{
+question: "What is a ghost employee?",
+answer: "A fake employee added to payroll so someone can steal wages."
+},
+
+{
+question: "What is the purpose of a trial balance?",
+answer: "To verify that total debits equal total credits."
+},
+
+{
+question: "What document summarizes employee wages?",
+answer: "Payroll register"
+},
+
+{
+question: "What control prevents one employee from handling an entire transaction?",
+answer: "Segregation of duties"
+},
+
+{
+question: "What type of fraud involves stealing company assets?",
+answer: "Asset misappropriation"
+},
+
+{
+question: "What system records all financial transactions?",
+answer: "General ledger"
+}
+
+];
+let currentQuestion = null;
+
+function generateQuestion(){
+
+const randomIndex = Math.floor(Math.random() * quizBank.length);
+
+currentQuestion = quizBank[randomIndex];
+
+document.getElementById("quizQuestion").innerText = currentQuestion.question;
+
+document.getElementById("quizAnswer").style.display = "none";
+
+}
+function showQuizAnswer(){
+
+if(currentQuestion){
+
+const answerBox = document.getElementById("quizAnswer");
+
+answerBox.innerText = currentQuestion.answer;
+
+answerBox.style.display = "block";
+
+}
+
+}<a href="#practiceexam">Practice Exam Mode</a>
